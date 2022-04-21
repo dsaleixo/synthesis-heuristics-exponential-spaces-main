@@ -1,0 +1,36 @@
+1 
+abs(LocalInt) 
+2 
+length < length
+3 
+-1 < length
+4 
+state[-1]
+5 
+state[0]
+6 
+sum(map((lambda x : if abs(LocalInt)  < abs(LocalInt)  then: -1 else: 1), (state[-1:] - state[0:])))
+7 
+sum(map((lambda x : if abs(LocalInt)  < abs(LocalInt)  then: -1 else: 1), (state[-1:] - state[1:])))
+8 
+sum(map((lambda x : if abs(LocalInt)  < 1 then: -1 else: 1), (state[-1:] - state[0:])))
+9 
+(if length < length then: -1 else: 1 + sum(map((lambda x : if 1 < abs(LocalInt)  then: 1 else: 0), (state[1:] - state[:-1]))))
+1 
+abs(LocalInt) 
+2 
+length < length
+3 
+-1 < length
+4 
+state[-1]
+5 
+state[0]
+6 
+sum(map((lambda x : if length < length then: -1 else: 1), (state[-1:] - state[0:])))
+7 
+sum(map((lambda x : if length < length then: -1 else: 1), (state[-1:] - state[1:])))
+8 
+sum(map((lambda x : if abs(LocalInt)  < 1 then: -1 else: 1), (state[-1:] - state[0:])))
+9 
+(if length < length then: -1 else: 1 + sum(map((lambda x : if 1 < abs(LocalInt)  then: 1 else: 0), (state[1:] - state[:-1]))))
