@@ -40,7 +40,7 @@ class EvalTrueDistance(EvalBase):
   
 
 
-    def __init__(self, number_states, size):
+    def __init__(self, number_states , size):
         self._states = []
         self._h_values = []
         ida = IDAStar()

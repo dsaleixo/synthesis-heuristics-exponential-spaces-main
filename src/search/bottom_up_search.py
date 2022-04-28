@@ -36,6 +36,7 @@ class BottomUpSearch():
     def __init__(self, log_file, program_file, log_results=True):
         self.log_results = log_results
         
+
         if self.log_results:
             self.log_folder = 'logs/'
             self.program_folder = 'programs/'
@@ -191,7 +192,7 @@ class BottomUpSearch():
         #             print(p.to_string())
         
         self._variables_list = variables_list
-        print("naruto")
+        
         number_programs_evaluated = 0
         total_number_states_evaluated = 0
         current_size = 0
