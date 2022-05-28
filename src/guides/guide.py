@@ -223,7 +223,7 @@ class Guide:
                 if  aux<2:
                     self.rules[key][k]=0
                 elif aux == 2:
-                    self.rules[key][k]=1
+                    self.rules[key][k]=2
                 elif aux == 3:
                     self.rules[key][k]=1000
 
@@ -239,7 +239,7 @@ class Guide:
                         if  aux<2:
                             self.rules[key][k]=0
                         elif aux == 2:
-                            self.rules[key][k]=1
+                            self.rules[key][k]=2
                         elif aux == 3:
                             self.rules[key][k]=1000
                            
