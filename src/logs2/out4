@@ -1,0 +1,259 @@
+Inicial
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx000000000000000000000000000000000000000000
+Execucao 0
+melhor Programa =Nenhum
+melhor REsultado =inf
+teste =010000000000000000000000000000000000000000
+
+Tempo de Execução : 0.026276588439941406
+Programa =Nenhum
+Numero de Programa visitados =0
+REsultado =inf
+AtualizouVarScalarFromArray
+	null	0	VarScalarFromArray==>VarList
+	null	0	VarScalarFromArray==>NumericConstant
+
+VarListSliceFront
+	null	0	VarListSliceFront==>LocalList
+	null	0	VarListSliceFront==>VarList
+	null	0	VarListSliceFront==>NumericConstant
+
+VarListSliceEnd
+	null	0	VarListSliceEnd==>LocalList
+	null	0	VarListSliceEnd==>VarList
+	null	0	VarListSliceEnd==>NumericConstant
+
+Times
+	null	0	Times==>NumericConstant
+	null	0	Times==>Times
+	null	0	Times==>VarScalar
+	null	0	Times==>LocalInt
+	null	0	Times==>Plus
+	null	0	Times==>Abs
+
+Plus
+	null	0	Plus==>Sum
+	null	0	Plus==>ITE
+
+Minus
+	null	0	Minus==>NumericConstant
+	null	0	Minus==>VarListSliceEnd
+	null	0	Minus==>Sum
+	null	0	Minus==>Times
+	null	0	Minus==>VarScalar
+	null	0	Minus==>Minus
+	null	0	Minus==>LocalInt
+	null	0	Minus==>VarListSliceFront
+	null	0	Minus==>Plus
+	null	0	Minus==>Abs
+
+Sum
+	null	0	Sum==>LocalList
+	null	0	Sum==>VarList
+	null	0	Sum==>Map
+
+Abs
+	null	0	Abs==>LocalInt
+
+LT
+	null	0	LT==>VarScalarFromArray
+	null	0	LT==>NumericConstant
+	null	0	LT==>Abs
+	null	0	LT==>VarScalar
+
+ITE
+	null	0	ITE==>LT
+	null	0	ITE==>NumericConstant
+
+Map
+	null	0	Map==>Function
+	null	0	Map==>Minus
+
+Function
+	null	0	Function==>Plus
+	null	0	Function==>Abs
+	null	0	Function==>Times
+	null	0	Function==>ITE
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx010000000000000000000000000000000000000000
+Execucao 1
+melhor Programa =Nenhum
+melhor REsultado =inf
+teste =000000000100000001101000000000100000000000
+
+Tempo de Execução : 0.021538496017456055
+Programa =(length - length)
+Numero de Programa visitados =1
+REsultado =4238
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx000000000100000001101000000000100000000000
+Execucao 2
+melhor Programa =(length - length)
+melhor REsultado =4238
+teste =100000000100110011101100000000100000000000
+
+Tempo de Execução : 3.293440341949463
+Programa =(length - (1 - -1))
+Numero de Programa visitados =151
+REsultado =134
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx100000000100110011101100000000100000000000
+Execucao 3
+melhor Programa =(length - (1 - -1))
+melhor REsultado =134
+teste =000001000100110110101100000010100000000000
+
+Tempo de Execução : 3.2681424617767334
+Programa =(length - (1 - -1))
+Numero de Programa visitados =151
+REsultado =134
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx000001000100110110101100000010100000000000
+Execucao 4
+melhor Programa =(length - (1 - -1))
+melhor REsultado =134
+teste =000000001100110110111100100010111000001000
+
+Tempo de Execução : 3.5479562282562256
+Programa =(length - (1 - -1))
+Numero de Programa visitados =156
+REsultado =134
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx000000001100110110111100100010111000001000
+Execucao 5
+melhor Programa =(length - (1 - -1))
+melhor REsultado =134
+teste =000000001100100110110000100010111100001000
+
+Tempo de Execução : 0.04313850402832031
+Programa =(1 - -1)
+Numero de Programa visitados =10
+REsultado =2070
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx000000001100110110111100100010111000001000
+Execucao 6
+melhor Programa =(length - (1 - -1))
+melhor REsultado =134
+teste =010100001100101111110100100010111000000000
+
+Tempo de Execução : 0.22301125526428223
+Programa =(1 - (-1 - (1 - (-1 - (1 - -1)))))
+Numero de Programa visitados =28
+REsultado =134
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx010100001100101111110100100010111000000000
+Execucao 7
+melhor Programa =(1 - (-1 - (1 - (-1 - (1 - -1)))))
+melhor REsultado =134
+teste =010100001100100110010100100110111000011101
+
+Tempo de Execução : 0.2213590145111084
+Programa =(1 - (-1 - (1 - (-1 - (1 - -1)))))
+Numero de Programa visitados =29
+REsultado =134
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx010100001100100110010100100110111000011101
+Execucao 8
+melhor Programa =(1 - (-1 - (1 - (-1 - (1 - -1)))))
+melhor REsultado =134
+teste =010100001000110111010100000110111001011111
+
+Tempo de Execução : 0.21985530853271484
+Programa =(1 - (-1 - (1 - (-1 - (1 - -1)))))
+Numero de Programa visitados =32
+REsultado =134
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx010100001000110111010100000110111001011111
+Execucao 9
+melhor Programa =(1 - (-1 - (1 - (-1 - (1 - -1)))))
+melhor REsultado =134
+teste =001100000010110111010100100110101011011111
+
+Tempo de Execução : 1.572335958480835
+Programa =(1 - (-1 - (1 - (-1 - (1 - -1)))))
+Numero de Programa visitados =136
+REsultado =134
+AtualizouVarScalarFromArray
+	null	0	VarScalarFromArray==>VarList
+	null	0	VarScalarFromArray==>NumericConstant
+
+VarListSliceFront
+	null	0	VarListSliceFront==>LocalList
+	null	0	VarListSliceFront==>VarList
+	null	0	VarListSliceFront==>NumericConstant
+
+VarListSliceEnd
+	null	0	VarListSliceEnd==>LocalList
+	null	0	VarListSliceEnd==>VarList
+	null	0	VarListSliceEnd==>NumericConstant
+
+Times
+	3054	15	Times==>NumericConstant
+	null	0	Times==>Times
+	236118	111	Times==>VarScalar
+	null	0	Times==>LocalInt
+	null	0	Times==>Plus
+	null	0	Times==>Abs
+
+Plus
+	null	0	Plus==>Sum
+	null	0	Plus==>ITE
+
+Minus
+	134	657	Minus==>NumericConstant
+	null	0	Minus==>VarListSliceEnd
+	null	0	Minus==>Sum
+	236118	110	Minus==>Times
+	134	430	Minus==>VarScalar
+	134	596	Minus==>Minus
+	null	0	Minus==>LocalInt
+	null	0	Minus==>VarListSliceFront
+	null	0	Minus==>Plus
+	null	0	Minus==>Abs
+
+Sum
+	null	0	Sum==>LocalList
+	87614	3	Sum==>VarList
+	null	0	Sum==>Map
+
+Abs
+	null	0	Abs==>LocalInt
+
+LT
+	null	0	LT==>VarScalarFromArray
+	3054	9	LT==>NumericConstant
+	null	0	LT==>Abs
+	3054	2	LT==>VarScalar
+
+ITE
+	null	0	ITE==>LT
+	null	0	ITE==>NumericConstant
+
+Map
+	null	0	Map==>Function
+	null	0	Map==>Minus
+
+Function
+	null	0	Function==>Plus
+	null	0	Function==>Abs
+	null	0	Function==>Times
+	null	0	Function==>ITE
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx001100000010110111010100100110101011011111
+Execucao 10
+melhor Programa =(1 - (-1 - (1 - (-1 - (1 - -1)))))
+melhor REsultado =134
+teste =001100010011110111000100110000101001011111
+
+Tempo de Execução : 0.17521142959594727
+Programa =(1 - (-1 - (1 - (-1 - (1 - -1)))))
+Numero de Programa visitados =25
+REsultado =134
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx001100010011110111000100110000101001011111
+Execucao 11
+melhor Programa =(1 - (-1 - (1 - (-1 - (1 - -1)))))
+melhor REsultado =134
+teste =011110011011110111000100110100101000010111
+
+Tempo de Execução : 0.17957401275634766
+Programa =(1 - (-1 - (1 - (-1 - (1 - -1)))))
+Numero de Programa visitados =42
+REsultado =134
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx011110011011110111000100110100101000010111
+Execucao 12
+melhor Programa =(1 - (-1 - (1 - (-1 - (1 - -1)))))
+melhor REsultado =134
+teste =010111011011110011000100110100101000010110
+

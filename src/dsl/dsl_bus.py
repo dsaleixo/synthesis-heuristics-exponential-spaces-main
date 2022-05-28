@@ -4,10 +4,13 @@ from dsl import dsl
 class VarList(dsl.VarList):
     def __init__(self):
         super().__init__()
+
    
 class VarScalar(dsl.VarScalar):
     def __init__(self):
         super().__init__()
+    
+    
     
 class NumericConstant(dsl.NumericConstant):
     def __init__(self):
@@ -26,8 +29,8 @@ class Times(dsl.Times):
         super().__init__()
     
     @staticmethod
-    def grow(plist, size):       
-        new_programs = []
+    def grow(plist, size, guide):       
+        
         
         # generates all combinations of cost of size 2 varying from 1 to size - 1
         combinations = list(itertools.product(range(1, size - 1), repeat=2))
@@ -43,14 +46,14 @@ class Times(dsl.Times):
                 
             for t1, programs1 in program_set1.items():                
                 # skip if t1 isn't a node accepted by Lt
-                if t1 not in Times.accepted_rules(0):
+                if t1 not in Times.accepted_rules(0) or not guide.canGrow(Times.class_name(),t1):
                     continue
                 
                 for p1 in programs1:                       
 
                     for t2, programs2 in program_set2.items():                
                         # skip if t1 isn't a node accepted by Lt
-                        if t2 not in Times.accepted_rules(1):
+                        if t2 not in Times.accepted_rules(1) or not guide.canGrow(Times.class_name(),t2):
                             continue
                         
                         for p2 in programs2:
@@ -58,18 +61,18 @@ class Times(dsl.Times):
                             times = Times()
                             times.add_child(p1)
                             times.add_child(p2)
-                            new_programs.append(times)
+                            #new_programs.append(times)
             
                             yield times
-        return new_programs  
+        return   
 
 class Minus(dsl.Minus):
     def __init__(self):
         super().__init__()
     
     @staticmethod
-    def grow(plist, size):               
-        new_programs = []
+    def grow(plist, size, guide):               
+        #new_programs = []
 
         # generates all combinations of cost of size 2 varying from 1 to size - 1
         combinations = list(itertools.product(range(1, size - 1), repeat=2))
@@ -85,14 +88,14 @@ class Minus(dsl.Minus):
                  
             for t1, programs1 in program_set1.items():                
                 # skip if t1 isn't a node accepted by Lt
-                if t1 not in Minus.accepted_rules(0):
+                if t1 not in Minus.accepted_rules(0) or not guide.canGrow(Minus.class_name(),t1):
                     continue
                  
                 for p1 in programs1:                       
  
                     for t2, programs2 in program_set2.items():                
                         # skip if t1 isn't a node accepted by Lt
-                        if t2 not in Minus.accepted_rules(1):
+                        if t2 not in Minus.accepted_rules(1) or not guide.canGrow(Minus.class_name(),t2):
                             continue
                          
                         for p2 in programs2:
@@ -100,18 +103,18 @@ class Minus(dsl.Minus):
                             minus = Minus()
                             minus.add_child(p1)
                             minus.add_child(p2)
-                            new_programs.append(minus)
+                            #new_programs.append(minus)
              
                             yield minus
-        return new_programs  
+        return   
  
 class Plus(dsl.Plus):
     def __init__(self):
         super().__init__()
     
     @staticmethod
-    def grow(plist, size):               
-        new_programs = []         
+    def grow(plist, size, guide):               
+       # new_programs = []         
         # generates all combinations of cost of size 2 varying from 1 to size - 1
         combinations = list(itertools.product(range(1, size - 1), repeat=2))
  
@@ -126,14 +129,14 @@ class Plus(dsl.Plus):
                  
             for t1, programs1 in program_set1.items():                
                 # skip if t1 isn't a node accepted by Lt
-                if t1 not in Plus.accepted_rules(0):
+                if t1 not in Plus.accepted_rules(0) or not guide.canGrow(Plus.class_name(),t1):
                     continue
                  
                 for p1 in programs1:                       
  
                     for t2, programs2 in program_set2.items():                
                         # skip if t1 isn't a node accepted by Lt
-                        if t2 not in Plus.accepted_rules(0):
+                        if t2 not in Plus.accepted_rules(0) or not guide.canGrow(Plus.class_name(),t2):
                             continue
                          
                         for p2 in programs2:
@@ -141,10 +144,10 @@ class Plus(dsl.Plus):
                             plus = Plus()
                             plus.add_child(p1)
                             plus.add_child(p2)
-                            new_programs.append(plus)
+                            #new_programs.append(plus)
              
                             yield plus
-        return new_programs  
+        return   
      
 
 class Abs(dsl.Abs):
@@ -152,56 +155,56 @@ class Abs(dsl.Abs):
         super().__init__() 
     
     @staticmethod
-    def grow(plist, size):
-        new_programs = []
+    def grow(plist, size, guide):
+        #new_programs = []
           
         program_set = plist.get_programs(size - 1)
                      
         for t1, programs1 in program_set.items():                
             # skip if t1 isn't a node accepted by Lt
-            if t1 not in Abs.accepted_rules(0):
+            if t1 not in Abs.accepted_rules(0) or not guide.canGrow(Abs.class_name(),t1):
                 continue
              
             for p1 in programs1:                       
  
                 abs = Abs()
                 abs.add_child(p1)
-                new_programs.append(abs)
+                #new_programs.append(abs)
          
                 yield abs
-        return new_programs
+        return 
 
 class Function(dsl.Function):
     def __init__(self):
         super().__init__() 
     
     @staticmethod
-    def grow(plist, size):
-        new_programs = []
+    def grow(plist, size, guide):
+        #new_programs = []
           
         program_set = plist.get_programs(size - 1)
                      
         for t1, programs1 in program_set.items():                
             # skip if t1 isn't a node accepted by Lt
-            if t1 not in Function.accepted_rules(0):
+            if t1 not in Function.accepted_rules(0) or not guide.canGrow(Function.class_name(),t1):
                 continue
              
             for p1 in programs1:                       
  
                 func = Function()
                 func.add_child(p1)
-                new_programs.append(func)
+                #new_programs.append(func)
          
                 yield func
-        return new_programs
+        return 
     
 class ITE(dsl.ITE):
     def __init__(self):
         super().__init__()
     
     @staticmethod
-    def grow(plist, size):               
-        new_programs = []
+    def grow(plist, size, guide):               
+        
         
         # generates all combinations of cost of size 2 varying from 1 to size - 1
         combinations = list(itertools.product(range(0, size), repeat=3))
@@ -218,21 +221,21 @@ class ITE(dsl.ITE):
                  
             for t1, programs1 in program_set1.items():                
 
-                if t1 not in ITE.accepted_rules(0):
+                if t1 not in ITE.accepted_rules(0) or not guide.canGrow(ITE.class_name(),t1):
                     continue
                  
                 for p1 in programs1:                       
  
                     for t2, programs2 in program_set2.items():                
 
-                        if t2 not in ITE.accepted_rules(1):
+                        if t2 not in ITE.accepted_rules(1) or not guide.canGrow(ITE.class_name(),t2):
                             continue
                          
                         for p2 in programs2:
                             
                             for t3, programs3 in program_set3.items():                
 
-                                if t3 not in ITE.accepted_rules(2):
+                                if t3 not in ITE.accepted_rules(2) or not guide.canGrow(ITE.class_name(),t3):
                                     continue
                                  
                                 for p3 in programs3:
@@ -241,18 +244,18 @@ class ITE(dsl.ITE):
                                     ite.add_child(p1)
                                     ite.add_child(p2)
                                     ite.add_child(p3)
-                                    new_programs.append(ite)
+                                    #new_programs.append(ite)
                      
                                     yield ite
-        return new_programs  
+        return   
 
 class VarListSliceFront(dsl.VarListSliceFront):
     def __init__(self):
         super().__init__()
     
     @staticmethod
-    def grow(plist, size):               
-        new_programs = []
+    def grow(plist, size, guide):               
+        
                  
         # generates all combinations of cost of size 2 varying from 1 to size - 1
         combinations = list(itertools.product(range(0, size), repeat=2))
@@ -268,14 +271,14 @@ class VarListSliceFront(dsl.VarListSliceFront):
                  
             for t1, programs1 in program_set1.items():                
                 # skip if t1 isn't a node accepted by Lt
-                if t1 not in VarListSliceFront.accepted_rules(0):
+                if t1 not in VarListSliceFront.accepted_rules(0) or not guide.canGrow(VarListSliceFront.class_name(),t1):
                     continue
                  
                 for p1 in programs1:                       
  
                     for t2, programs2 in program_set2.items():                
                         # skip if t1 isn't a node accepted by Lt
-                        if t2 not in VarListSliceFront.accepted_rules(1):
+                        if t2 not in VarListSliceFront.accepted_rules(1) or not guide.canGrow(VarListSliceFront.class_name(),t2):
                             continue
                          
                         for p2 in programs2:
@@ -283,18 +286,18 @@ class VarListSliceFront(dsl.VarListSliceFront):
                             slice_front = VarListSliceFront()
                             slice_front.add_child(p1)
                             slice_front.add_child(p2)
-                            new_programs.append(slice_front)
+                            #new_programs.append(slice_front)
              
                             yield slice_front
-        return new_programs  
+        return   
 
 class VarListSliceEnd(dsl.VarListSliceEnd):
     def __init__(self):
         super().__init__()
     
     @staticmethod
-    def grow(plist, size):               
-        new_programs = []
+    def grow(plist, size, guide):               
+      
                  
         # generates all combinations of cost of size 2 varying from 1 to size - 1
         combinations = list(itertools.product(range(0, size), repeat=2))
@@ -310,14 +313,14 @@ class VarListSliceEnd(dsl.VarListSliceEnd):
                  
             for t1, programs1 in program_set1.items():                
                 # skip if t1 isn't a node accepted by Lt
-                if t1 not in VarListSliceEnd.accepted_rules(0):
+                if t1 not in VarListSliceEnd.accepted_rules(0) or not guide.canGrow(VarListSliceEnd.class_name(),t1):
                     continue
                  
                 for p1 in programs1:                       
  
                     for t2, programs2 in program_set2.items():                
                         # skip if t1 isn't a node accepted by Lt
-                        if t2 not in VarListSliceEnd.accepted_rules(1):
+                        if t2 not in VarListSliceEnd.accepted_rules(1) or not guide.canGrow(VarListSliceEnd.class_name(),t2):
                             continue
                          
                         for p2 in programs2:
@@ -325,18 +328,18 @@ class VarListSliceEnd(dsl.VarListSliceEnd):
                             slice_end = VarListSliceEnd()
                             slice_end.add_child(p1)
                             slice_end.add_child(p2)
-                            new_programs.append(slice_end)
+                            #new_programs.append(slice_end)
              
                             yield slice_end
-        return new_programs  
+        return 
 
 class VarScalarFromArray(dsl.VarScalarFromArray):
     def __init__(self):
         super().__init__()
     
     @staticmethod
-    def grow(plist, size):               
-        new_programs = []
+    def grow(plist, size, guide):               
+        
                  
         # generates all combinations of cost of size 2 varying from 1 to size - 1
         combinations = list(itertools.product(range(0, size), repeat=2))
@@ -352,14 +355,14 @@ class VarScalarFromArray(dsl.VarScalarFromArray):
                  
             for t1, programs1 in program_set1.items():                
                 # skip if t1 isn't a node accepted by Lt
-                if t1 not in VarScalarFromArray.accepted_rules(0):
+                if t1 not in VarScalarFromArray.accepted_rules(0) or not guide.canGrow(VarScalarFromArray.class_name(),t1):
                     continue
                  
                 for p1 in programs1:                       
  
                     for t2, programs2 in program_set2.items():                
                         # skip if t1 isn't a node accepted by Lt
-                        if t2 not in VarScalarFromArray.accepted_rules(1):
+                        if t2 not in VarScalarFromArray.accepted_rules(1) or not guide.canGrow(VarScalarFromArray.class_name(),t2):
                             continue
                          
                         for p2 in programs2:
@@ -367,18 +370,18 @@ class VarScalarFromArray(dsl.VarScalarFromArray):
                             scalar = VarScalarFromArray()
                             scalar.add_child(p1)
                             scalar.add_child(p2)
-                            new_programs.append(scalar)
+                            #new_programs.append(scalar)
              
                             yield scalar
-        return new_programs  
+        return   
 
 class LT(dsl.LT):
     def __init__(self):
         super().__init__()
     
     @staticmethod
-    def grow(plist, size):               
-        new_programs = []
+    def grow(plist, size, guide):               
+        
                  
         # generates all combinations of cost of size 2 varying from 1 to size - 1
         combinations = list(itertools.product(range(0, size), repeat=2))
@@ -394,14 +397,14 @@ class LT(dsl.LT):
                  
             for t1, programs1 in program_set1.items():                
                 # skip if t1 isn't a node accepted by Lt
-                if t1 not in LT.accepted_rules(0):
+                if t1 not in LT.accepted_rules(0) or not guide.canGrow(LT.class_name(),t1):
                     continue
                  
                 for p1 in programs1:                       
  
-                    for t2, programs2 in program_set2.items():                
+                    for t2, programs2 in program_set2.items():              
                         # skip if t1 isn't a node accepted by Lt
-                        if t2 not in LT.accepted_rules(1):
+                        if t2 not in LT.accepted_rules(1) or not guide.canGrow(LT.class_name(),t2):
                             continue
                          
                         for p2 in programs2:
@@ -409,43 +412,43 @@ class LT(dsl.LT):
                             lt = LT()
                             lt.add_child(p1)
                             lt.add_child(p2)
-                            new_programs.append(lt)
+                            #new_programs.append(lt)
              
                             yield lt
-        return new_programs  
+        return   
  
 class Sum(dsl.Sum):
     def __init__(self):
         super().__init__()
     
     @staticmethod
-    def grow(plist, size):       
-        new_programs = []
+    def grow(plist, size, guide):       
+        
         # defines which nodes are accepted in the AST
         program_set = plist.get_programs(size - 1)
                      
         for t1, programs1 in program_set.items():                
             # skip if t1 isn't a node accepted by Lt
-            print('Sum Accepted Rules: ', Sum.accepted_rules(0))
-            if t1 not in Sum.accepted_rules(0):
+            #print('Sum Accepted Rules: ', Sum.accepted_rules(0))
+            if t1 not in Sum.accepted_rules(0) or not guide.canGrow(Sum.class_name(),t1):
                 continue
              
             for p1 in programs1:                       
  
                 sum_p = Sum()
                 sum_p.add_child(p1)
-                new_programs.append(sum_p)
+                #new_programs.append(sum_p)
          
                 yield sum_p
-        return new_programs
+        return 
  
 class Map(dsl.Map):
     def __init__(self):
         super().__init__()
     
     @staticmethod
-    def grow(plist, size):  
-        new_programs = []
+    def grow(plist, size, guide):  
+        
                  
         # generates all combinations of cost of size 2 varying from 1 to size - 1
         combinations = list(itertools.product(range(0, size), repeat=2))
@@ -466,7 +469,7 @@ class Map(dsl.Map):
                  
             for t1, programs1 in program_set1.items():                
                 # skip if t1 isn't a node accepted by Lt
-                if t1 not in Map.accepted_rules(0):
+                if t1 not in Map.accepted_rules(0) or not guide.canGrow(Map.class_name(),t1) :
                     continue
                  
                 for p1 in programs1:                       
@@ -474,7 +477,7 @@ class Map(dsl.Map):
                     for t2, programs2 in program_set2.items():
                                     
                         # skip if t2 isn't a node accepted by Map
-                        if t2 not in Map.accepted_rules(1):
+                        if t2 not in Map.accepted_rules(1) or not guide.canGrow(Map.class_name(),t2):
                             continue
                          
                         for p2 in programs2:
@@ -482,8 +485,8 @@ class Map(dsl.Map):
                             m = Map()
                             m.add_child(p1)
                             m.add_child(p2)
-                            new_programs.append(m)
+                            #new_programs.append(m)
              
                             yield m
-        return new_programs 
+        return  
 

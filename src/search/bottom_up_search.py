@@ -2,6 +2,12 @@ from dsl.dsl_bus import *
 import time
 from os.path import join
 from dsl.dsl import Node
+from b2n.l1Binaria import L1Binaria
+from guides.guide import Guide
+from math import inf
+import os, psutil 
+
+
 
 import numpy as np
 
@@ -33,8 +39,12 @@ class ProgramList():
 
 class BottomUpSearch():
     
-    def __init__(self, log_file, program_file, log_results=True):
+    def __init__(self,guide, log_file, program_file, log_results=False):
         self.log_results = log_results
+        self.guide = Guide(Node.all_rules())
+        self.guide=guide
+        
+
         
 
         if self.log_results:
@@ -52,7 +62,7 @@ class BottomUpSearch():
         for i in variables_scalar:
             p = VarScalar.new(i)
             
-            if self.has_equivalent(p):
+            if self.has_equivalent(p)and self.guide.valid_program(p):
                 continue
             
             set_of_initial_programs.append(p)
@@ -60,7 +70,7 @@ class BottomUpSearch():
         for i in variables_list:
             p = VarList.new(i)
             
-            if self.has_equivalent(p):
+            if self.has_equivalent(p)and self.guide.valid_program(p):
                 continue
             
             set_of_initial_programs.append(p)
@@ -68,13 +78,15 @@ class BottomUpSearch():
         for i in numeric_constant_values:
             constant = NumericConstant.new(i)
             
-            if self.has_equivalent(constant):
+            if self.has_equivalent(constant)and self.guide.valid_program(constant):
                 continue
             
             set_of_initial_programs.append(constant)
 
-        set_of_initial_programs.append(LocalInt.new())
-        set_of_initial_programs.append(LocalList.new())
+        if self.guide.valid_program(LocalInt.new()):
+            set_of_initial_programs.append(LocalInt.new())
+        if self.guide.valid_program(LocalList.new()):
+            set_of_initial_programs.append(LocalList.new())
             
         return set_of_initial_programs
         
@@ -128,13 +140,14 @@ class BottomUpSearch():
     
     def grow(self, operations, size):
         new_programs = []
+
         for op in operations:
 
             # print('Growing operation: ', op)
 
-            for p in op.grow(self.plist, size):
+            for p in op.grow(self.plist, size,self.guide):
                 # print('Generated: ', p.to_string())
-                if p.to_string() not in self.closed_list:
+                if p.to_string() not in self.closed_list and self.guide.valid_program(p):
                     
                     if self.has_equivalent(p):
                         self.closed_list.add(p.to_string())
@@ -156,13 +169,12 @@ class BottomUpSearch():
                numeric_constant_values, 
                variables_scalar,
                variables_list, 
-               eval_function,
-               time_limit): 
+               eval_function,l1): 
         
-        time_start = time.time()
+        
 
         self._eval = eval_function
-        
+        '''
         NumericConstant.accepted_types = [set(numeric_constant_values)]
         VarList.accepted_types = [set(variables_list)]
         VarScalar.accepted_types = [set(variables_scalar)]
@@ -171,7 +183,7 @@ class BottomUpSearch():
                              numeric_constant_values, 
                              variables_scalar, 
                              variables_list)
-        
+        '''
         self.closed_list = set()
         self.programs_outputs = {} #set()
         
@@ -200,30 +212,41 @@ class BottomUpSearch():
         
         best_loss = None
         best_program = None
-
+       
         while current_size <= bound:
             
             number_evaluations_bound = 0
 
             print('Current bound: ', current_size)
-
+            #print(psutil.virtual_memory()._asdict()) 
+            process = psutil.Process(os.getpid())
+            free_m = 23099292672-process.memory_info().rss
+            #print("free ",(free_m))
             for p in self.grow(operations, current_size):
                 
-                # print(p.to_string())
+               # print(p.to_string())
 #                 if isinstance(p, ITE):
 #                     print(p.to_string())
             
-                time_end = time.time()         
-                   
-                if time_end - time_start > time_limit - 60:
+                
+
+                                                                  
+                memoria = psutil.virtual_memory()._asdict()['free']- 104857600
+                process = psutil.Process(os.getpid())
+                free_m = 23099292672-process.memory_info().rss
+                if  memoria<0 or free_m<0:
                    
                     if self.log_results:
+                        if best_loss == None:
+                            best_loss = inf
                         with open(join(self.log_folder + self.log_file), 'a') as results_file:
+                            
                             results_file.write(("{:d}, {:f}, {:d}, {:f} \n".format(id_log, 
                                                                                     best_loss, 
                                                                                     total_number_states_evaluated,
-                                                                                    time_end - time_start)))                    
-                    return best_loss, best_program
+                                                                                    45)))                    
+                    
+                    return best_loss, best_program,current_size, number_programs_evaluated, total_number_states_evaluated
                 
                 
                 number_programs_evaluated += 1
@@ -233,22 +256,33 @@ class BottomUpSearch():
 #                     print('Number Eval Bounds: ', number_evaluations_bound)
 
                 loss, number_states = self._eval.eval(p)
+                guide_aux = Guide(Node.all_rules())
+                guide_aux.countRules(p)
+                if loss < inf:
+                    l1.update(guide_aux,loss)
+
                 # print(p.to_string(), loss)
                 total_number_states_evaluated += number_states                    
 
                 if best_program is None or loss < best_loss:
                     best_loss = loss
                     best_program = p
-                                        
+
+                    print(best_program.to_string())
+                    guide0 = Guide(Node.all_rules())
+                    guide0.countRules(best_program)
+                    #guide0.printer()
+                    print()     
+
                     if self.log_results:
                         with open(join(self.log_folder + self.log_file), 'a') as results_file:
 
-                            print(id_log, best_loss, total_number_states_evaluated, number_programs_evaluated, time.time() - time_start)
+                            print(id_log, best_loss, total_number_states_evaluated, number_programs_evaluated)
                             results_file.write(("{:d}, {:f}, {:d}, {:f} \n".format(id_log, 
                                                                                     best_loss, 
                                                                                     total_number_states_evaluated,
                                                                                     number_programs_evaluated,
-                                                                                    time.time() - time_start)))
+                                                                                    -1 )))
                             
                         with open(join(self.program_folder + self.program_file), 'a') as results_file:
                             results_file.write(("{:d} \n".format(id_log)))
@@ -259,6 +293,7 @@ class BottomUpSearch():
                 
             #print('Size: ', current_size, ' Evaluations: ', number_evaluations_bound)
             current_size += 1
-                
-        return best_loss, best_program, number_programs_evaluated, total_number_states_evaluated
+        if best_loss == None:
+            best_loss = inf
+        return best_loss, best_program,current_size, number_programs_evaluated, total_number_states_evaluated
 

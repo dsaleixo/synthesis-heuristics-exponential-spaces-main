@@ -1,0 +1,81 @@
+Inicial
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx100010111000101101110000111011111100001010
+Execucao 0
+melhor Programa =(length * 1)
+melhor REsultado =366
+teste =100010111000101101010000111011101110101010
+
+Tempo de Execução : 828.5862636566162Programa =(length * 1)
+REsultado =366
+AtualizouVarScalarFromArray
+	null	0	VarScalarFromArray==>VarList
+	null	0	VarScalarFromArray==>NumericConstant
+
+VarListSliceFront
+	null	0	VarListSliceFront==>LocalList
+	null	0	VarListSliceFront==>VarList
+	null	0	VarListSliceFront==>NumericConstant
+
+VarListSliceEnd
+	null	0	VarListSliceEnd==>LocalList
+	null	0	VarListSliceEnd==>VarList
+	null	0	VarListSliceEnd==>NumericConstant
+
+Times
+	366	8	Times==>VarScalar
+	null	0	Times==>Times
+	null	0	Times==>LocalInt
+	null	0	Times==>Plus
+	366	10	Times==>NumericConstant
+	null	0	Times==>Abs
+
+Plus
+	null	0	Plus==>ITE
+	430190	2	Plus==>Sum
+
+Minus
+	null	0	Minus==>VarScalar
+	null	0	Minus==>VarListSliceFront
+	null	0	Minus==>VarListSliceEnd
+	4238	20	Minus==>Sum
+	null	0	Minus==>Times
+	null	0	Minus==>LocalInt
+	null	0	Minus==>Plus
+	null	0	Minus==>NumericConstant
+	87614	18	Minus==>Minus
+	null	0	Minus==>Abs
+
+Sum
+	null	0	Sum==>Map
+	null	0	Sum==>LocalList
+	4238	24	Sum==>VarList
+
+Abs
+	null	0	Abs==>LocalInt
+
+LT
+	3054	4	LT==>VarScalar
+	null	0	LT==>Abs
+	null	0	LT==>VarScalarFromArray
+	3054	2	LT==>NumericConstant
+
+ITE
+	null	0	ITE==>LT
+	null	0	ITE==>NumericConstant
+
+Map
+	null	0	Map==>Function
+	null	0	Map==>Minus
+
+Function
+	null	0	Function==>ITE
+	null	0	Function==>Times
+	null	0	Function==>Plus
+	null	0	Function==>Abs
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx100010111000101101010000111011101110101010
+Execucao 1
+melhor Programa =(length * 1)
+melhor REsultado =366
+teste =101110111000101101011000111011101110101010
+

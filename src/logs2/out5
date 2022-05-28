@@ -1,0 +1,435 @@
+Inicial
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx020002020001201011012002001122000021100212
+Execucao 0
+melhor Programa =sum(state)
+melhor REsultado =87614
+teste =020002020001200011002002000120000021100212
+
+Tempo de Execução : 0.02878093719482422
+Programa =sum(local_list)
+Numero de Programa visitados =4
+REsultado =inf
+VarScalarFromArray
+	null	0	VarScalarFromArray==>VarList
+	null	0	VarScalarFromArray==>NumericConstant
+
+VarListSliceFront
+	null	0	VarListSliceFront==>LocalList
+	null	0	VarListSliceFront==>VarList
+	null	0	VarListSliceFront==>NumericConstant
+
+VarListSliceEnd
+	null	0	VarListSliceEnd==>LocalList
+	null	0	VarListSliceEnd==>VarList
+	null	0	VarListSliceEnd==>NumericConstant
+
+Times
+	null	0	Times==>Abs
+	null	0	Times==>Plus
+	null	0	Times==>Times
+	null	0	Times==>NumericConstant
+	null	0	Times==>LocalInt
+	null	0	Times==>VarScalar
+
+Plus
+	null	0	Plus==>Sum
+	null	0	Plus==>ITE
+
+Minus
+	null	0	Minus==>Abs
+	null	0	Minus==>Minus
+	null	0	Minus==>VarListSliceFront
+	null	0	Minus==>VarListSliceEnd
+	null	0	Minus==>Plus
+	null	0	Minus==>Times
+	null	0	Minus==>NumericConstant
+	null	0	Minus==>Sum
+	null	0	Minus==>LocalInt
+	null	0	Minus==>VarScalar
+
+Sum
+	87614	1	Sum==>VarList
+	null	0	Sum==>LocalList
+	null	0	Sum==>Map
+
+Abs
+	null	0	Abs==>LocalInt
+
+LT
+	null	0	LT==>VarScalarFromArray
+	null	0	LT==>NumericConstant
+	null	0	LT==>Abs
+	null	0	LT==>VarScalar
+
+ITE
+	null	0	ITE==>LT
+	null	0	ITE==>NumericConstant
+
+Map
+	null	0	Map==>Function
+	null	0	Map==>Minus
+
+Function
+	null	0	Function==>Abs
+	null	0	Function==>Plus
+	null	0	Function==>ITE
+	null	0	Function==>Times
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx020002020001201011012002001122000021100212
+Execucao 1
+melhor Programa =sum(state)
+melhor REsultado =87614
+teste =220102020000201011022002201122001021100211
+
+Tempo de Execução : 7.338939666748047
+Programa =state[0]
+Numero de Programa visitados =378
+REsultado =766
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx220102020000201011022002201122001021100211
+Execucao 2
+melhor Programa =state[0]
+melhor REsultado =766
+teste =220102020000001011022102001122001021100210
+
+Tempo de Execução : 7.355866432189941
+Programa =state[0]
+Numero de Programa visitados =378
+REsultado =766
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx220102020000001011022102001122001021100210
+Execucao 3
+melhor Programa =state[0]
+melhor REsultado =766
+teste =220102020000201011002101001122001021100000
+
+Tempo de Execução : 0.029182910919189453
+Programa =state[0]
+Numero de Programa visitados =13
+REsultado =766
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx220102020000201011002101001122001021100000
+Execucao 4
+melhor Programa =state[0]
+melhor REsultado =766
+teste =220102020000201012202101001222201001102000
+
+Tempo de Execução : 0.03571295738220215
+Programa =state[0]
+Numero de Programa visitados =27
+REsultado =766
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx220102020000201012202101001222201001102000
+Execucao 5
+melhor Programa =state[0]
+melhor REsultado =766
+teste =120100020000001012202100101222200001102002
+
+Tempo de Execução : 0.02559208869934082
+Programa =state[0]
+Numero de Programa visitados =7
+REsultado =766
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx120100020000001012202100101222200001102002
+Execucao 6
+melhor Programa =state[0]
+melhor REsultado =766
+teste =120100021100001112202100101020200100102002
+
+Tempo de Execução : 0.027173757553100586
+Programa =state[0]
+Numero de Programa visitados =8
+REsultado =766
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx120100021100001112202100101020200100102002
+Execucao 7
+melhor Programa =state[0]
+melhor REsultado =766
+teste =120110121100001112202100101002200100102202
+
+Tempo de Execução : 0.03668570518493652
+Programa =state[0]
+Numero de Programa visitados =22
+REsultado =766
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx120110121100001112202100101002200100102202
+Execucao 8
+melhor Programa =state[0]
+melhor REsultado =766
+teste =120110121100000012201000102002200100102202
+
+Tempo de Execução : 0.0420527458190918
+Programa =state[0]
+Numero de Programa visitados =22
+REsultado =766
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx120110121100000012201000102002200100102202
+Execucao 9
+melhor Programa =state[0]
+melhor REsultado =766
+teste =121112121102000012001000102002200100201002
+
+Tempo de Execução : 0.040494441986083984
+Programa =state[0]
+Numero de Programa visitados =40
+REsultado =766
+AtualizouVarScalarFromArray
+	766	27	VarScalarFromArray==>VarList
+	766	27	VarScalarFromArray==>NumericConstant
+
+VarListSliceFront
+	null	0	VarListSliceFront==>LocalList
+	null	0	VarListSliceFront==>VarList
+	null	0	VarListSliceFront==>NumericConstant
+
+VarListSliceEnd
+	null	0	VarListSliceEnd==>LocalList
+	null	0	VarListSliceEnd==>VarList
+	null	0	VarListSliceEnd==>NumericConstant
+
+Times
+	null	0	Times==>Abs
+	null	0	Times==>Plus
+	null	0	Times==>Times
+	3054	3	Times==>NumericConstant
+	null	0	Times==>LocalInt
+	null	0	Times==>VarScalar
+
+Plus
+	null	0	Plus==>Sum
+	null	0	Plus==>ITE
+
+Minus
+	null	0	Minus==>Abs
+	null	0	Minus==>Minus
+	null	0	Minus==>VarListSliceFront
+	null	0	Minus==>VarListSliceEnd
+	null	0	Minus==>Plus
+	null	0	Minus==>Times
+	null	0	Minus==>NumericConstant
+	null	0	Minus==>Sum
+	null	0	Minus==>LocalInt
+	null	0	Minus==>VarScalar
+
+Sum
+	87614	10	Sum==>VarList
+	null	0	Sum==>LocalList
+	null	0	Sum==>Map
+
+Abs
+	null	0	Abs==>LocalInt
+
+LT
+	null	0	LT==>VarScalarFromArray
+	null	0	LT==>NumericConstant
+	null	0	LT==>Abs
+	null	0	LT==>VarScalar
+
+ITE
+	null	0	ITE==>LT
+	null	0	ITE==>NumericConstant
+
+Map
+	null	0	Map==>Function
+	null	0	Map==>Minus
+
+Function
+	null	0	Function==>Abs
+	null	0	Function==>Plus
+	null	0	Function==>ITE
+	null	0	Function==>Times
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx121112121102000012001000102002200100201002
+Execucao 10
+melhor Programa =state[0]
+melhor REsultado =766
+teste =221112121102010012001000102112200101201002
+
+Tempo de Execução : 0.05460524559020996
+Programa =(length * 1)
+Numero de Programa visitados =55
+REsultado =366
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx221112121102010012001000102112200101201002
+Execucao 11
+melhor Programa =(length * 1)
+melhor REsultado =366
+teste =021122121102000012101000100112000101201002
+
+Tempo de Execução : 0.052075862884521484
+Programa =(-1 * -1)
+Numero de Programa visitados =45
+REsultado =3054
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx221112121102010012001000102112200101201002
+Execucao 12
+melhor Programa =(length * 1)
+melhor REsultado =366
+teste =101102121102010010001000102112200102201012
+
+Tempo de Execução : 0.04308676719665527
+Programa =(length * 1)
+Numero de Programa visitados =36
+REsultado =366
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx101102121102010010001000102112200102201012
+Execucao 13
+melhor Programa =(length * 1)
+melhor REsultado =366
+teste =101002111100010010001001102111200100202012
+
+Tempo de Execução : 0.028837919235229492
+Programa =sum(state)
+Numero de Programa visitados =18
+REsultado =87614
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx101102121102010010001000102112200102201012
+Execucao 14
+melhor Programa =(length * 1)
+melhor REsultado =366
+teste =101102121100110000001100102102200102001012
+
+Tempo de Execução : 0.027571916580200195
+Programa =sum(state)
+Numero de Programa visitados =14
+REsultado =87614
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx101102121102010010001000102112200102201012
+Execucao 15
+melhor Programa =(length * 1)
+melhor REsultado =366
+teste =201102120002010010001000122102101102201112
+
+Tempo de Execução : 0.03354382514953613
+Programa =(length * 1)
+Numero de Programa visitados =25
+REsultado =366
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx201102120002010010001000122102101102201112
+Execucao 16
+melhor Programa =(length * 1)
+melhor REsultado =366
+teste =221002121002010020021000112102101102201002
+
+Tempo de Execução : 0.06610441207885742
+Programa =(length * 1)
+Numero de Programa visitados =104
+REsultado =366
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx221002121002010020021000112102101102201002
+Execucao 17
+melhor Programa =(length * 1)
+melhor REsultado =366
+teste =221012121002010120022002110102002102201002
+
+Tempo de Execução : 0.05874443054199219
+Programa =(length * 1)
+Numero de Programa visitados =113
+REsultado =366
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx221012121002010120022002110102002102201002
+Execucao 18
+melhor Programa =(length * 1)
+melhor REsultado =366
+teste =221012120002010120002002110101002100201000
+
+Tempo de Execução : 0.03401780128479004
+Programa =(length * 1)
+Numero de Programa visitados =28
+REsultado =366
+AtualizouVarScalarFromArray
+	766	39	VarScalarFromArray==>VarList
+	766	39	VarScalarFromArray==>NumericConstant
+
+VarListSliceFront
+	null	0	VarListSliceFront==>LocalList
+	null	0	VarListSliceFront==>VarList
+	null	0	VarListSliceFront==>NumericConstant
+
+VarListSliceEnd
+	null	0	VarListSliceEnd==>LocalList
+	null	0	VarListSliceEnd==>VarList
+	null	0	VarListSliceEnd==>NumericConstant
+
+Times
+	null	0	Times==>Abs
+	null	0	Times==>Plus
+	null	0	Times==>Times
+	366	36	Times==>NumericConstant
+	null	0	Times==>LocalInt
+	366	18	Times==>VarScalar
+
+Plus
+	null	0	Plus==>Sum
+	null	0	Plus==>ITE
+
+Minus
+	null	0	Minus==>Abs
+	null	0	Minus==>Minus
+	null	0	Minus==>VarListSliceFront
+	null	0	Minus==>VarListSliceEnd
+	null	0	Minus==>Plus
+	null	0	Minus==>Times
+	null	0	Minus==>NumericConstant
+	null	0	Minus==>Sum
+	null	0	Minus==>LocalInt
+	4238	1	Minus==>VarScalar
+
+Sum
+	87614	16	Sum==>VarList
+	null	0	Sum==>LocalList
+	null	0	Sum==>Map
+
+Abs
+	null	0	Abs==>LocalInt
+
+LT
+	null	0	LT==>VarScalarFromArray
+	null	0	LT==>NumericConstant
+	null	0	LT==>Abs
+	null	0	LT==>VarScalar
+
+ITE
+	null	0	ITE==>LT
+	null	0	ITE==>NumericConstant
+
+Map
+	null	0	Map==>Function
+	null	0	Map==>Minus
+
+Function
+	null	0	Function==>Abs
+	null	0	Function==>Plus
+	null	0	Function==>ITE
+	null	0	Function==>Times
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx221012120002010120002002110101002100201000
+Execucao 19
+melhor Programa =(length * 1)
+melhor REsultado =366
+teste =011012220002010110002002110101001100201000
+
+Tempo de Execução : 0.038228511810302734
+Programa =(length * 1)
+Numero de Programa visitados =25
+REsultado =366
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx011012220002010110002002110101001100201000
+Execucao 20
+melhor Programa =(length * 1)
+melhor REsultado =366
+teste =011010220000010010002002110201001100201000
+
+Tempo de Execução : 0.026068449020385742
+Programa =sum(local_list)
+Numero de Programa visitados =18
+REsultado =inf
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx011012220002010110002002110101001100201000
+Execucao 21
+melhor Programa =(length * 1)
+melhor REsultado =366
+teste =011012120202010110002000110001000110201000
+
+Tempo de Execução : 0.030062437057495117
+Programa =(length * 1)
+Numero de Programa visitados =18
+REsultado =366
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx011012120202010110002000110001000110201000
+Execucao 22
+melhor Programa =(length * 1)
+melhor REsultado =366
+teste =011012110202010110002001111011020112201010
+
+Tempo de Execução : 0.045598506927490234
+Programa =(length * 1)
+Numero de Programa visitados =31
+REsultado =366
+Atualizouxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx011012110202010110002001111011020112201010
+Execucao 23
+melhor Programa =(length * 1)
+melhor REsultado =366
+teste =011012010212010112002201021011110112201010
+

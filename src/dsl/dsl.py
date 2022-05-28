@@ -25,7 +25,8 @@ class Node:
         
         self.children = []
 
-    def is_terminal(self):
+    @staticmethod
+    def is_terminal():
         return False
     
     def add_child(self, child):            
@@ -54,6 +55,8 @@ class Node:
         env[self.local][type(x).__name__] = x
                 
         return self.interpret(env) 
+
+ 
 
     @staticmethod
     def leftmost_hole(node):
@@ -112,19 +115,19 @@ class Node:
         
         Times.accepted_types = [Times.accepted_nodes, Times.accepted_nodes]
         
-        # Minus.accepted_nodes = set([VarScalar.class_name(), 
-        #           NumericConstant.class_name(),
-        #           Plus.class_name(),
-        #           Times.class_name(),
-        #           Minus.class_name(),
-        #           Sum.class_name(),
-        #           Abs.class_name(),
-        #           VarListSliceFront.class_name(),
-        #           VarListSliceEnd.class_name(),
-        #           LocalInt.class_name()])
+        Minus.accepted_nodes = set([VarScalar.class_name(), 
+                  NumericConstant.class_name(),
+                 Plus.class_name(),
+                  Times.class_name(),
+                 Minus.class_name(),
+                 Sum.class_name(),
+                  Abs.class_name(),
+                  VarListSliceFront.class_name(),
+                  VarListSliceEnd.class_name(),
+                  LocalInt.class_name()])
 
-        Minus.accepted_nodes = set([VarListSliceFront.class_name(),
-                  VarListSliceEnd.class_name()])
+        #Minus.accepted_nodes = set([VarListSliceFront.class_name(),
+         #         VarListSliceEnd.class_name()])
         
         Minus.accepted_types = [Minus.accepted_nodes, Minus.accepted_nodes]
         
@@ -133,12 +136,12 @@ class Node:
         
         Plus.accepted_types = [Plus.accepted_nodes, Plus.accepted_nodes]
         
-        # Function.accepted_nodes = set([ITE.class_name(),
-        #                           Plus.class_name(), 
-        #                           Times.class_name(),
-        #                           Abs.class_name()])
+        Function.accepted_nodes = set([ITE.class_name(),
+                                   Plus.class_name(), 
+                                   Times.class_name(),
+                                   Abs.class_name()])
 
-        Function.accepted_nodes = set([ITE.class_name()])
+        #Function.accepted_nodes = set([ITE.class_name()])
         Function.accepted_types = [Function.accepted_nodes]
 
         VarScalarFromArray.accepted_nodes_array = set([VarList.class_name()])
@@ -160,16 +163,39 @@ class Node:
         
         Abs.accepted_types = [Abs.accepted_nodes]
         
-        # Sum.accepted_nodes = set([Map.class_name(), VarList.class_name(), LocalList.class_name()])
-        Sum.accepted_nodes = set([Map.class_name()])
+        Sum.accepted_nodes = set([Map.class_name(), VarList.class_name(), LocalList.class_name()])
+        #Sum.accepted_nodes = set([Map.class_name()])
         Sum.accepted_types = [Sum.accepted_nodes]
         
         Map.accepted_nodes_function = set([Function.class_name()])
-        # Map.accepted_nodes_list = set([Minus.class_name(), VarList.class_name(), LocalList.class_name()])
+        Map.accepted_nodes_list = set([Minus.class_name(), VarList.class_name(), LocalList.class_name()])
         Map.accepted_nodes_list = set([Minus.class_name()])
         Map.accepted_types = [Map.accepted_nodes_function, Map.accepted_nodes_list]
         
         Node.accepted_types = [set([Sum.class_name(), Plus.class_name(), Times.class_name(), ITE.class_name()])]
+   
+    @staticmethod
+    def all_rules():
+        list = []
+        
+        
+        list.append(VarScalarFromArray)
+        list.append(VarListSliceFront)
+        list.append(VarListSliceEnd)
+        list.append(NumericConstant)
+        list.append(Times)
+        list.append(Plus)
+        list.append(Minus)
+        list.append(Sum)
+        list.append(Abs)
+        list.append(LT)
+        list.append(ITE)
+        list.append(Map)
+        
+        list.append(VarScalar)
+        list.append(Function)
+        return list
+
 
     @staticmethod
     def filter_production_rules(operations,
@@ -265,8 +291,8 @@ class LocalInt(Node):
         inst = cls()
         
         return inst
-    
-    def is_terminal(self):
+    @staticmethod
+    def is_terminal():
         return True
 
     def to_string(self):
@@ -296,8 +322,9 @@ class VarList(Node):
         inst.add_child(var)
         
         return inst
-    
-    def is_terminal(self):
+
+    @staticmethod
+    def is_terminal():
         return True
 
     def to_string(self):
@@ -408,7 +435,8 @@ class VarScalar(Node):
         
         return inst
     
-    def is_terminal(self):
+    @staticmethod
+    def is_terminal():
         return True
 
     def to_string(self):
@@ -437,7 +465,8 @@ class NumericConstant(Node):
         
         return inst
 
-    def is_terminal(self):
+    @staticmethod
+    def is_terminal():
         return True
 
     def to_string(self):
@@ -682,7 +711,8 @@ class LocalList(Node):
         inst = cls()
         return inst
     
-    def is_terminal(self):
+    @staticmethod
+    def is_terminal():
         return True
 
     def to_string(self):

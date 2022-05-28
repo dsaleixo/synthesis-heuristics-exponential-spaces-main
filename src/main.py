@@ -1,7 +1,9 @@
 from evaluation import EvalBaseHeuristicPK, EvalTrueDistance
 from dsl.dsl import *
+from b2n.SA import *
 from search.bottom_up_search import BottomUpSearch
 from search.simulated_annealing import SimulatedAnnealing
+import sys
 
 program = Sum.new(
                 Map.new(
@@ -44,6 +46,8 @@ def run_bus():
                 Sum,
                 Map, 
                 Plus,
+                Times,
+               
                 Function, 
                 Minus,
                 VarScalarFromArray,
@@ -70,8 +74,17 @@ def run_sa():
                 VarListSliceEnd], [-1, 0, 1], [], ['state'], eval, 100, 0.9, 200, 1000, None)
 
 
+def B2N(ex):
+        nodes =[ITE,LT, Sum,Map, Function, Plus, Times, Minus, Abs, VarListSliceFront, 
+                                VarScalarFromArray,VarListSliceEnd]
+        sa = SA(nodes,"logs2/out"+ex)
+     
+        eval = EvalTrueDistance("./instance/pacanke")
+        sa.run(eval)
+        
+
 def main():
-        run_bus()
+        B2N(sys.argv[1])
         # eval = EvalBaseHeuristicPK(100, 10)
         # v = eval.eval(program)
         # print(program.to_string(), v)
